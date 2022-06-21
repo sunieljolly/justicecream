@@ -9,7 +9,7 @@ function App() {
         Get fit or give up and drink!
         </h1>
        <p>Just a group of mates giving each other shit due to how slow they all run ;)</p>
-       <p>... Coming soon</p>
+       <p>... Coming soon.</p>
       </header>
     </div>
   );
