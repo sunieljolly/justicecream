@@ -28,14 +28,18 @@ const UsingFetch = () => {
     
     <div>
       {runs.length > 0 && (
-        <ul>
+        <table>
+            <th>Runner</th>
+            <th>Distance</th>
+            <th>Time</th>
           {runs.map(run => (
-            <li key={run.id}>
-            name:{run.athlete.firstname}
-            /distance:{run.distance/1000} 
-            /time:{run.moving_time}</li>
+            <tr key={run.id}>
+            <td>{run.athlete.firstname}</td>
+            <td>{(Math.round(run.distance*100)/100)/1000}</td>
+            <td>{run.moving_time}</td>
+            </tr>
           ))}
-        </ul>
+        </table>
       )}
     </div>
   )
