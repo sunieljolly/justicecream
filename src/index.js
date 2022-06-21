@@ -4,41 +4,42 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Header from "./Header";
-import JsonDataDisplay from "./JsonDataDisplay"
+import StravaData from "./StravaData";
+
 const themeLight = createTheme({
   palette: {
     background: {
-      default: "#FC5200"
+      default: "#FC5200",
     },
     text: {
       primary: "#ffffff",
       fontSize: 16,
-      
-    }
-  }
+    },
+  },
 });
 
 const themeDark = createTheme({
   palette: {
     background: {
-      default: "#222222"
+      default: "#222222",
     },
     text: {
-      primary: "#ffffff"
+      primary: "#ffffff",
     },
-
-  }
+  },
 });
 
 const App = () => {
   const [light, setLight] = React.useState(true);
-  return (    
+  return (
     <MuiThemeProvider theme={light ? themeLight : themeDark}>
-    <Button variant="contained" onClick={() => setLight(prev => !prev)}>Theme</Button>
-    <Header/>  
+      <Header />
       <CssBaseline />
-      
-    <JsonDataDisplay />
+      <Button variant="contained" onClick={() => setLight((prev) => !prev)}>
+        Theme
+      </Button>
+
+      <StravaData />
     </MuiThemeProvider>
   );
 };
