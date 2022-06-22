@@ -35,12 +35,8 @@ const UsingFetch = () => {
 
   const fetchData = () => {
     fetch(
-      "https://www.strava.com/api/v3/clubs/Wivabix/activities?page=1&per_page=100",
-      //"https://www.strava.com/api/v3/clubs/Wivabix/members?page=1&per_page=50",
+      "http://localhost:8000/data",
       {
-        headers: {
-          Authorization: "Bearer 20c11d8e53283eb6fd7d15c3e7bb1d9393e165f6",
-        },
         method: "GET",
       }
     )
@@ -74,7 +70,7 @@ const UsingFetch = () => {
             {runs.map((run) => (
               <TableRow key={run.id}>
                 <TableCell align="center" component="th" scope="row">
-                  {run.athlete.firstname}
+                  {run.athlete.firstname} {run.athlete.lastname}
                 </TableCell>
                 <TableCell align="center">
                   {Math.round((run.distance / 1000) * 100) / 100} km
