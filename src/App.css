@@ -1,0 +1,40 @@
+
+:root {
+  --orange: #fc5200;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  background-color: #fc5200;
+  padding: 0px;
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+#logo{
+    margin: auto;
+    display: block;
+    
+}
+.challengeStats {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  background-color: var(--orange);
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
+}
+th {
+  background-color: var(--orange);
+  color: white!important;
+}
+.elevation{
+    margin-bottom: 10px;
+    color: var(--orange);
+    text-align: center;
+}
