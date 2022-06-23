@@ -94,7 +94,9 @@ if (getMondayOfCurrentWeek() == "Mon Oct 24") {
   firstCharacterOfRun = "*";
   alert("Someone remind Jolza to update the character list");
 }
+
 alert("Enter the special character below before your run name on Strava\n " + firstCharacterOfRun + "\n For example...\n\n'" + firstCharacterOfRun + "Morning run'" )
+
 const challengeDistance = 151;
 let completedDistance = 0;
 let totalElevation = 0;
@@ -168,6 +170,9 @@ const UsingFetch = () => {
   runs.map((run) => {
     totalElevation += run.total_elevation_gain;
   });
+
+
+
   // const runners = [
   //   {
   //     name: "Sunny ☀",
