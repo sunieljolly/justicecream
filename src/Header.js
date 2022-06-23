@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 export default function Header() {
   return (
     <>
+      <div className="strava-banner"></div>
       <img id="cover" src={cover} alt="cover"></img>
       <a
         id="logo"

@@ -64,3 +64,12 @@ th {
     color: var(--orange);
     text-align: center;
 }
+.strava-banner{
+  background-color: var(--orange);
+  height: 4em;
+}
+.strava-banner h2{
+  
+  color: white;
+  margin: 0px;
+}
