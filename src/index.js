@@ -8,8 +8,8 @@ import { Audio } from  'react-loader-spinner'
 const App = () => {
   return (
     <div id="body">
-      <Header />      
-      <StravaData />
+      <Header /> 
+      <StravaData/>     
     </div>
   );
 };

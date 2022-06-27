@@ -25,8 +25,7 @@ function convertHMS(value) {
   }
   return hours + ":" + minutes + ":" + seconds; // Return is HH : MM : SS
 }
-const axios = require("axios");
-const AUTH_LINK = "https://www.strava.com/oauth/token";
+
 let firstCharacterOfRun = "";
 function getMondayOfCurrentWeek() {
   const today = new Date();
@@ -54,122 +53,21 @@ if (getMondayOfCurrentWeek() == "Mon Jul 18") {
 if (getMondayOfCurrentWeek() == "Mon Jul 25") {
   firstCharacterOfRun = "#";
 }
-if (getMondayOfCurrentWeek() == "Mon Aug 01") {
-  firstCharacterOfRun = "[";
-}
-if (getMondayOfCurrentWeek() == "Mon Aug 08") {
-  firstCharacterOfRun = "]";
-}
-if (getMondayOfCurrentWeek() == "Mon Aug 15") {
-  firstCharacterOfRun = "{";
-}
-if (getMondayOfCurrentWeek() == "Mon Aug 22") {
-  firstCharacterOfRun = "}";
-}
-if (getMondayOfCurrentWeek() == "Mon Aug 29") {
-  firstCharacterOfRun = "@";
-}
-if (getMondayOfCurrentWeek() == "Mon Sep 05") {
-  firstCharacterOfRun = ":";
-}
-if (getMondayOfCurrentWeek() == "Mon Sep 12") {
-  firstCharacterOfRun = "~";
-}
-if (getMondayOfCurrentWeek() == "Mon Sep 19") {
-  firstCharacterOfRun = "?";
-}
-if (getMondayOfCurrentWeek() == "Mon Sep 26") {
-  firstCharacterOfRun = "%";
-}
-if (getMondayOfCurrentWeek() == "Mon Oct 03") {
-  firstCharacterOfRun = "£";
-}
-if (getMondayOfCurrentWeek() == "Mon Oct 10") {
-  firstCharacterOfRun = "^";
-}
-if (getMondayOfCurrentWeek() == "Mon Oct 17") {
-  firstCharacterOfRun = "&";
-}
-if (getMondayOfCurrentWeek() == "Mon Oct 24") {
-  firstCharacterOfRun = "*";
-  alert("Someone remind Jolza to update the character list");
-}
 
-alert("Enter the special character below before your run name on Strava\n " + firstCharacterOfRun + "\n For example...\n\n'" + firstCharacterOfRun + "Morning run'" )
+const runs = [
+ { 
+    athlete: {
+      firstname: 'TEST',
+      surname: 'TEST'
+    },
+  distance: 0,
+  moving_time: 0,
+  total_elevation_gain: 0,
+}
+]
+console.log(runs)
 
-const challengeDistance = 151;
-let completedDistance = 0;
-let totalElevation = 0;
 
-const UsingFetch = () => {
-  // function createData(runner, distance, time) {
-  //   return { runner, distance, time };
-  // }
-  const [runs, setRuns] = useState([]);
-
-  const fetchData = () => {
-    const options = {
-      url: AUTH_LINK,
-      method: "post",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      data: {
-        client_id: "63888",
-        client_secret: "5f71a72f4709fede33b57136cc54991ff076889a",
-        refresh_token: "e065f6316423ed52e7e383f809fc3e0edc5fe3e9",
-        grant_type: "refresh_token",
-      },
-    };
-    axios
-      .request(options)
-      .then((res) => {
-        let newToken = res.data.access_token;
-        getData(newToken);
-        console.log(convertHMS(res.data.expires_in));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    function getData(newToken) {
-      fetch(
-        "https://www.strava.com/api/v3/clubs/Wivabix/activities?page=1&per_page=100",
-        {
-          headers: {
-             Authorization: "Bearer " + newToken,
-          },
-          method: "GET",
-        }
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          let challengeRuns = data.filter(
-            (run) => run.name.slice(0, 1) === firstCharacterOfRun
-          );
-          setRuns(challengeRuns);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  runs.forEach((run) => {
-    completedDistance += run.distance;
-  });
-  completedDistance = Math.round((completedDistance / 1000) * 100) / 100;
-
-  runs.map((run) => {
-    totalElevation += run.total_elevation_gain;
-  });
 
 
 
@@ -211,18 +109,17 @@ const UsingFetch = () => {
   //     time: [],
   //   }
   // ];
-
+  export default function StravaData (){
   return (
     <div>
-      <div class="challengeStats">
-        <p>{challengeDistance} km</p>
-        <p>{completedDistance} km</p>
-        <p>{challengeDistance - completedDistance} km</p>
-        <h3>Challenge</h3>
+      <div className="challengeStats">
+      <h3>Challenge</h3>
+        <h3>Completed</h3>
+        <h3>Remaining</h3><h3>Challenge</h3>
         <h3>Completed</h3>
         <h3>Remaining</h3>
       </div>
-      <div className="elevation">Total Elevation: {totalElevation} m</div>
+      <div className="elevation">Total Elevation: 0 m</div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
@@ -258,4 +155,4 @@ const UsingFetch = () => {
   );
 };
 
-export default UsingFetch;
+
