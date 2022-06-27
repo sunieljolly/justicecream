@@ -57,58 +57,67 @@ if (getMondayOfCurrentWeek() == "Mon Jul 25") {
 const runs = [
  { 
     athlete: {
-      firstname: 'TEST',
-      surname: 'TEST'
+      firstname: 'Sunny',
+      surname: 'J',
+      profile: "https://www.strava.com/athletes/64202042",
     },
   distance: 0,
   moving_time: 0,
   total_elevation_gain: 0,
-}
+},
+{ 
+  athlete: {
+    firstname: 'Geoff',
+    surname: 'H',
+    profile: "https://www.strava.com/athletes/64196508",
+  },
+distance: 0,
+moving_time: 0,
+total_elevation_gain: 0,
+},
+{ 
+  athlete: {
+    firstname: 'Robbie',
+    surname: 'P',
+    profile: "https://www.strava.com/athletes/14195994",
+  },
+distance: 0,
+moving_time: 0,
+total_elevation_gain: 0,
+},
+{ 
+  athlete: {
+    firstname: 'Matt',
+    surname: 'L',
+    profile: 'https://www.strava.com/athletes/57253367'
+  },
+distance: 0,
+moving_time: 0,
+total_elevation_gain: 0,
+},
+{ 
+  athlete: {
+    firstname: 'Matty',
+    surname: 'G',
+    profile: "https://www.strava.com/athletes/64233809",
+  },
+distance: 0,
+moving_time: 0,
+total_elevation_gain: 0,
+},
+{ 
+  athlete: {
+    firstname: 'Aman',
+    surname: 'S',
+    profile: "https://www.strava.com/athletes/37903350",
+  },
+distance: 0,
+moving_time: 0,
+total_elevation_gain: 0,
+},
 ]
 console.log(runs)
 
-
-
-
-
-  // const runners = [
-  //   {
-  //     name: "Sunny ☀",
-  //     profile: "https://www.strava.com/athletes/64202042",
-  //     km: [],
-  //     time: [],
-  //   },
-  //   {
-  //     name: "Matt Lloyd",
-  //     profile: "https://www.strava.com/athletes/57253367",
-  //     km: [],
-  //     time: [],
-  //   },
-  //   {
-  //     name: "MattG.",
-  //     profile: "https://www.strava.com/athletes/64233809",
-  //     km: [],
-  //     time: [],
-  //   },
-  //   {
-  //     name: "Geoff Hunt",
-  //     profile: "https://www.strava.com/athletes/64196508",
-  //     km: [],
-  //     time: [],
-  //   },
-  //   {
-  //     name: "Rob Pratt",
-  //     profile: "https://www.strava.com/athletes/14195994",
-  //     km: [],
-  //     time: [],
-  //   },
-  //   {
-  //     name: "Aman Sanghera",
-  //     profile: "https://www.strava.com/athletes/37903350",
-  //     km: [],
-  //     time: [],
-  //   }
-  // ];
   export default function StravaData (){
   return (
     <div>
@@ -128,6 +137,7 @@ console.log(runs)
               <TableCell align="center">Distance</TableCell>
               <TableCell align="center">Time</TableCell>
               <TableCell align="center">Elevation</TableCell>
+              <TableCell align="center">Profile</TableCell>
               <TableCell align="center"></TableCell>
             </TableRow>
           </TableHead>
@@ -144,7 +154,7 @@ console.log(runs)
                   {convertHMS(run.moving_time)}
                 </TableCell>
                 <TableCell align="center">{run.total_elevation_gain}</TableCell>
-
+                <TableCell align="center">{run.athlete.profile}</TableCell>
                 <TableCell align="center">✅</TableCell>
               </TableRow>
             ))}
