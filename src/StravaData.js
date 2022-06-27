@@ -154,7 +154,7 @@ console.log(runs)
                   {convertHMS(run.moving_time)}
                 </TableCell>
                 <TableCell align="center">{run.total_elevation_gain}</TableCell>
-                <TableCell align="center">{run.athlete.profile}</TableCell>
+                <TableCell align="center"><a href= {run.athlete.profile} >Click here</a></TableCell>
                 <TableCell align="center">✅</TableCell>
               </TableRow>
             ))}
